@@ -1,0 +1,44 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    color: #000000;
+    background-color: #E5E5E5;
+    font-family: 'Raleway', sans-serif;
+}
+
+.meeting-image {
+    position: relative;
+    margin: 0 6%;
+}
+
+.meeting-image img {
+    width: 100%;
+}
+
+.meeting-image-button {
+    position: absolute;
+    top: 65%;
+    left: 5.8%;
+}
+
+.meeting-image-button button {
+    padding: 15% 65%;
+    background: #FFFFFF;
+    border: 1px solid #1B6BA2;
+    color: #1B6BA2;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 31px;
+    line-height: 37px;
+}
+
+.meeting-image-navbar {
+    position: relative;
+    /*display: flex;*/
+}
+
+/*.meeting-image-navbar-left, .meeting-image-navbar-right {*/
+/*    z-index: 1;*/
+/*}*/
