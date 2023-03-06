@@ -1,3 +1,7 @@
+:root {
+    --scale: 0.85;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -8,37 +12,54 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-.meeting-image {
-    position: relative;
-    margin: 0 6%;
+.advantages {
+    width: 80%;
+    margin: 0 auto;
 }
 
-.meeting-image img {
-    width: 100%;
-}
-
-.meeting-image-button {
-    position: absolute;
-    top: 65%;
-    left: 5.8%;
-}
-
-.meeting-image-button button {
-    padding: 15% 65%;
-    background: #FFFFFF;
-    border: 1px solid #1B6BA2;
-    color: #1B6BA2;
-    border-radius: 20px;
+.advantages h1 {
+    text-align: center;
     font-weight: 600;
-    font-size: 31px;
-    line-height: 37px;
+    font-size: 60px;
+    line-height: 70px;
+    color: #000000;
 }
 
-.meeting-image-navbar {
-    position: relative;
-    /*display: flex;*/
+.advantages-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/*.meeting-image-navbar-left, .meeting-image-navbar-right {*/
-/*    z-index: 1;*/
-/*}*/
+.advantages-cards-item {
+    background: #FFFFFF;
+    box-shadow: calc(3px*var(--scale)) calc(3px*var(--scale)) calc(40px*var(--scale)) rgba(0, 0, 0, 0.4);
+    border-radius: calc(30px*var(--scale));
+    padding: calc(30px*var(--scale));
+    width: calc(396px*var(--scale));
+    height: calc(367px*var(--scale));
+    margin-right: calc(60px*var(--scale));
+    margin-bottom: calc(60px*var(--scale));
+}
+
+.advantages-cards-item img {
+    width: calc(97px*var(--scale));
+    height: calc(97px*var(--scale));
+    margin-bottom: calc(26px*var(--scale));
+}
+
+.advantages-cards-item h3 {
+    font-weight: 600;
+    font-size: calc(25px*var(--scale));
+    line-height: calc(29px*var(--scale));
+    margin-top: 0;
+    margin-bottom: calc(12px*var(--scale));
+}
+
+.advantages-cards-item p {
+    font-weight: 400;
+    margin-top: 0;
+    font-size: calc(18px*var(--scale));
+    line-height: calc(21px*var(--scale));
+}
