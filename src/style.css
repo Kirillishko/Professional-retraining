@@ -10,6 +10,9 @@ body {
     color: #000000;
     background-color: #E5E5E5;
     font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .advantages {
@@ -34,32 +37,100 @@ body {
 
 .advantages-cards-item {
     background: #FFFFFF;
-    box-shadow: calc(3px*var(--scale)) calc(3px*var(--scale)) calc(40px*var(--scale)) rgba(0, 0, 0, 0.4);
-    border-radius: calc(30px*var(--scale));
-    padding: calc(30px*var(--scale));
-    width: calc(396px*var(--scale));
-    height: calc(367px*var(--scale));
-    margin-right: calc(60px*var(--scale));
-    margin-bottom: calc(60px*var(--scale));
+    box-shadow: calc(3px * var(--scale)) calc(3px * var(--scale)) calc(40px * var(--scale)) rgba(0, 0, 0, 0.4);
+    border-radius: calc(30px * var(--scale));
+    padding: calc(30px * var(--scale));
+    width: calc(396px * var(--scale));
+    height: calc(367px * var(--scale));
+    margin-right: calc(60px * var(--scale));
+    margin-bottom: calc(60px * var(--scale));
 }
 
 .advantages-cards-item img {
-    width: calc(97px*var(--scale));
-    height: calc(97px*var(--scale));
-    margin-bottom: calc(26px*var(--scale));
+    width: calc(97px * var(--scale));
+    height: calc(97px * var(--scale));
+    margin-bottom: calc(26px * var(--scale));
 }
 
 .advantages-cards-item h3 {
     font-weight: 600;
-    font-size: calc(25px*var(--scale));
-    line-height: calc(29px*var(--scale));
+    font-size: calc(25px * var(--scale));
+    line-height: calc(29px * var(--scale));
     margin-top: 0;
-    margin-bottom: calc(12px*var(--scale));
+    margin-bottom: calc(12px * var(--scale));
 }
 
 .advantages-cards-item p {
     font-weight: 400;
     margin-top: 0;
-    font-size: calc(18px*var(--scale));
-    line-height: calc(21px*var(--scale));
+    font-size: calc(18px * var(--scale));
+    line-height: calc(21px * var(--scale));
+}
+
+.gallery {
+    width: calc(100% * var(--scale));
+    height: calc(800px * var(--scale));
+    overflow: hidden;
+}
+
+.gallery-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.left {
+
+}
+
+.right {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.right p {
+    writing-mode: vertical-rl;
+}
+
+.gallery-wrapper-item {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-wrapper-controls {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: white;
+    border-radius: 25px 0 25px 0;
+    border: 1px solid #0047FF;
+}
+
+.gallery-wrapper-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.gallery-wrapper-controls button.gallery-wrapper-controls-prev {
+    border-right: 1px solid #0047FF;;
+}
+
+.gallery-wrapper-controls button img {
+    width: 50px;
+}
+
+.gallery-wrapper-controls button.next img {
+    transform: scaleX(-1);
 }
