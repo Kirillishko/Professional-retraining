@@ -42,7 +42,43 @@ button {
     justify-content: center;
 }
 
-.advantages-cards-item {
+.advantages-cards-long-item {
+    background: #FFFFFF;
+    box-shadow: calc(3px * var(--scale)) calc(3px * var(--scale)) calc(40px * var(--scale)) rgba(0, 0, 0, 0.4);
+    border-radius: calc(30px * var(--scale));
+    padding: calc(30px * var(--scale));
+    width: 100%;
+    /*height: calc(367px * var(--scale));*/
+    margin-bottom: calc(60px * var(--scale));
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 30px;
+}
+
+.advantages-cards-long-item img {
+    width: calc(97px * var(--scale));
+    height: calc(97px * var(--scale));
+    /*margin-bottom: calc(26px * var(--scale));*/
+}
+
+.advantages-cards-long-item h3 {
+    font-weight: 600;
+    font-size: calc(25px * var(--scale));
+    line-height: calc(29px * var(--scale));
+    margin-top: 0;
+    margin-bottom: calc(12px * var(--scale));
+}
+
+.advantages-cards-long-item p {
+    font-weight: 400;
+    margin-top: 0;
+    font-size: calc(18px * var(--scale));
+    line-height: calc(21px * var(--scale));
+    margin-bottom: 0;
+}
+
+.advantages-cards-short-item {
     background: #FFFFFF;
     box-shadow: calc(3px * var(--scale)) calc(3px * var(--scale)) calc(40px * var(--scale)) rgba(0, 0, 0, 0.4);
     border-radius: calc(30px * var(--scale));
@@ -53,13 +89,13 @@ button {
     margin-bottom: calc(60px * var(--scale));
 }
 
-.advantages-cards-item img {
+.advantages-cards-short-item img {
     width: calc(97px * var(--scale));
     height: calc(97px * var(--scale));
     margin-bottom: calc(26px * var(--scale));
 }
 
-.advantages-cards-item h3 {
+.advantages-cards-short-item h3 {
     font-weight: 600;
     font-size: calc(25px * var(--scale));
     line-height: calc(29px * var(--scale));
@@ -67,7 +103,7 @@ button {
     margin-bottom: calc(12px * var(--scale));
 }
 
-.advantages-cards-item p {
+.advantages-cards-short-item p {
     font-weight: 400;
     margin-top: 0;
     font-size: calc(18px * var(--scale));
@@ -761,13 +797,13 @@ button {
 
 .footer-left-title p {
     font-weight: 500;
-    font-size: 29.75px;
+    font-size: 30px;
     line-height: 35px;
     margin: 0 0 5px 0;
 }
 
 .footer-left-title h3 {
-    font-weight: 00;
+    font-weight: 700;
     font-size: 50px;
     line-height: 59px;
     margin: 0;
