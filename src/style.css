@@ -175,7 +175,7 @@ button {
     height: 100%;
     border-radius: 60px;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
  }
 
 .gallery-wrapper-item.active {
@@ -616,53 +616,6 @@ button {
     width: 156px;
 }
 
-.partners {
-    width: 85%;
-    margin-bottom: 70px;
-}
-
-.partners h1 {
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 70px;
-    text-align: center;
-}
-
-.partners-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-.partners-content-left, .partners-content-center, .partners-content-right {
-    display: flex;
-    width: calc(100% / 3);
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
-.partners-content-left-item, .partners-content-center-item, .partners-content-right-item {
-    display: flex;
-    align-items: center;
-    flex: 1 1 0px;
-}
-
-.partners-content-left-item img, .partners-content-center-item img, .partners-content-right-item img {
-    /*width: 100%;*/
-}
-
-.partners-content-left-item {
-    justify-content: flex-start;
-}
-
-.partners-content-center-item {
-    justify-content: center;
-}
-
-.partners-content-right-item {
-    justify-content: flex-end;
-}
-
 .background-contacts {
     width: 100%;
     background-image: url("images/contacts-background.png");
@@ -893,15 +846,26 @@ button {
     line-height: 23px;
 }
 
-.flex-container {
+.partners {
     width: 85%;
+}
+
+.partners h1 {
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 70px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.partners-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
-.flex-item {
+.partners-content-item {
     width: 30%;
     height: 100%;
     margin-bottom: 20px;
@@ -910,22 +874,19 @@ button {
     align-items: center;
 }
 
-.flex-item img {
+.partners-content-item img {
     max-width: 100%;
     height: auto;
 }
 
-/* Первая колонка */
-.flex-item:nth-child(3n+1) {
+.partners-content-item:nth-child(3n+1) {
     justify-content: flex-start;
 }
 
-/* Вторая колонка */
-.flex-item:nth-child(3n+2) {
+.partners-content-item:nth-child(3n+2) {
     justify-content: center;
 }
 
-/* Третья колонка */
-.flex-item:nth-child(3n+3) {
+.partners-content-item:nth-child(3n+3) {
     justify-content: flex-end;
 }
