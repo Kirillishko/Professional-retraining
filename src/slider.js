@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let slides = document.querySelectorAll('.gallery-wrapper-item');
+    const slides = document.querySelectorAll('.gallery-wrapper-item');
     let currentSlide = 0;
     let slideInterval = setInterval(nextSlide, 10000);
 
