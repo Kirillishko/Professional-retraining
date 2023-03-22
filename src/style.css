@@ -89,9 +89,12 @@ button {
 }
 
 .advantages-cards-short-item img {
-    width: calc(97px * var(--scale));
-    height: calc(97px * var(--scale));
+    width: calc(60px * var(--scale));
+    height: calc(60px * var(--scale));
     margin-bottom: calc(26px * var(--scale));
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .advantages-cards-short-item h3 {
@@ -111,7 +114,6 @@ button {
 
 .gallery {
     width: 100%;
-    height: calc(800px * var(--scale));
     overflow: hidden;
     margin: 40px auto 0;
 }
@@ -129,7 +131,7 @@ button {
 .gallery-wrapper-left {
     position: relative;
     width: 85%;
-    height: calc(800px * var(--scale));
+    height: calc(42vw * var(--scale));
     border: 1px solid #0047FF;
     border-radius: 60px;
 }
@@ -193,6 +195,8 @@ button {
 .gallery-wrapper-controls button {
     width: 160px;
     height: 105px;
+    width: 8.3vw;
+    height: 5.5vw;
 }
 
 .gallery-wrapper-controls button.gallery-wrapper-controls-prev {
@@ -872,7 +876,7 @@ button {
 }
 
 .partners-content-item {
-    width: 30%;
+    width: 20%;
     height: 100%;
     margin-bottom: 20px;
     display: flex;
