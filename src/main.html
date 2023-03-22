@@ -8,8 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="slider.js"></script>
+    <script src="scroller.js"></script>
 </head>
 <body>
+<!--    <div class="header">-->
+<!--        <div class="header-button">-->
+<!--            <input id="scroll-button" type="button" value="Отправить заявку"/>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="gallery">
         <div class="gallery-wrapper">
             <div class="gallery-wrapper-left">
@@ -23,6 +29,9 @@
                     <button class="gallery-wrapper-controls-next">
                         <img src="images/buttons/arrow-left-circle-blue.png"/>
                     </button>
+                </div>
+                <div class="header-button">
+                    <input id="scroll-button" type="button" value="Отправить заявку"/>
                 </div>
             </div>
             <div class="gallery-wrapper-right">
@@ -118,7 +127,7 @@
     </div>
     <div class="videonews">
         <div class="videonews-top">
-            <h3>Видеоновости</h3>
+            <h3>Видео о наших проектах</h3>
         </div>
         <div class="videonews-content">
 <!--            <div class="videonews-content-big">-->
@@ -223,15 +232,15 @@
                     <p><span>E-mail:</span> pk.fmit@struust.ru</p>
                     <h3>Приглашаем к сотрудничеству, свяжитесь с нами, если остались вопросы или хотите присоединиться к нам!</h3>
                 </div>
-                <div class="contacts-content-right">
-                    <form>
-                        <h2>Заполните форму для связи с нами</h2>
-                        <input type="text" placeholder="Ваше имя"/>
-                        <input type="tel" placeholder="Телефон"/>
-                        <input type="email" placeholder="E-mail"/>
-                        <input type="submit" value="Отправить заявку"/>
-                    </form>
-                </div>
+<!--                <div class="contacts-content-right">-->
+<!--                    <form>-->
+<!--                        <h2>Заполните форму для связи с нами</h2>-->
+<!--                        <input type="text" placeholder="Ваше имя"/>-->
+<!--                        <input type="tel" placeholder="Телефон"/>-->
+<!--                        <input type="email" placeholder="E-mail"/>-->
+<!--                        <input type="submit" value="Отправить заявку"/>-->
+<!--                    </form>-->
+<!--                </div>-->
             </div>
         </div>
         <div class="footer">
@@ -251,16 +260,5 @@
             </div>
         </div>
     </div>
-    <video
-            width="400"
-            height="300"
-            controls="controls"
-            poster="images/Imagine%20Dragons%20-%20Natural.mp4"
-    >
-        <source
-                src="images/Imagine%20Dragons%20-%20Natural.mp4"
-                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-        />
-    </video>
 </body>
 </html>
