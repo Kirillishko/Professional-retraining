@@ -55,26 +55,30 @@ button {
     gap: 30px;
 }
 
+.advantages-cards-long-item:last-child {
+    margin-bottom: 0;
+}
+
 .advantages-cards-long-item img {
     width: calc(97px * var(--scale));
     height: calc(97px * var(--scale));
-    /*margin-bottom: calc(26px * var(--scale));*/
+    margin: auto;
 }
 
 .advantages-cards-long-item h3 {
-    font-weight: 600;
-    font-size: calc(25px * var(--scale));
+    font-weight: 900;
+    font-size: calc(30px * var(--scale));
     line-height: calc(29px * var(--scale));
     margin-top: 0;
     margin-bottom: calc(12px * var(--scale));
 }
 
 .advantages-cards-long-item p {
-    font-weight: 400;
+    font-weight: 600;
+    font-size: calc(22px * var(--scale));
+    line-height: calc(29px * var(--scale));
     margin-top: 0;
-    font-size: calc(18px * var(--scale));
-    line-height: calc(21px * var(--scale));
-    margin-bottom: 0;
+    margin-bottom: calc(12px * var(--scale));
 }
 
 .advantages-cards-short-item {
@@ -83,9 +87,13 @@ button {
     border-radius: calc(30px * var(--scale));
     padding: calc(30px * var(--scale));
     width: calc(396px * var(--scale));
-    height: calc(367px * var(--scale));
+    height: calc(327px * var(--scale));
     margin-right: calc(60px * var(--scale));
     margin-bottom: calc(60px * var(--scale));
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: relative;
 }
 
 .advantages-cards-short-item img {
@@ -97,12 +105,19 @@ button {
     display: block;
 }
 
+.advantages-cards-short-item-text {
+    height: 100%;
+}
+
 .advantages-cards-short-item h3 {
     font-weight: 600;
     font-size: calc(22px * var(--scale));
     line-height: calc(29px * var(--scale));
     margin-top: 0;
     margin-bottom: calc(12px * var(--scale));
+    text-align: center;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 
 .advantages-cards-short-item p {
@@ -730,11 +745,12 @@ button {
     box-shadow: 4px 4px 40px rgba(17, 107, 188, 0.4);
     border-radius: 30px;
     font-weight: 600;
-    font-size: 36px;
+    /*font-size: 36px;*/
     line-height: 42px;
     color: #FFF;
     margin-bottom: 0;
     cursor: pointer;
+    font-size: 1.8vw;
 }
 
 .contacts-content-right input::placeholder {
