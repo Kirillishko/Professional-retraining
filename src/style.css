@@ -191,9 +191,8 @@ button {
 
 .gallery-wrapper-right {
     position: absolute;
-    top: 75px;
-    right: 50px;
-    margin-left: 70px;
+    top: 4vw;
+    right: 2.6vw;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -216,9 +215,9 @@ button {
 }
 
 .gallery-wrapper-right hr {
-    margin: 56px 0 50px;
+    margin: 3vw 0 2.6vw;
     border: 1px solid #0047FF;
-    height: 135px;
+    height: 7vw;
 }
 
 .gallery-wrapper-item {
@@ -257,7 +256,7 @@ button {
 }
 
 .gallery-wrapper-controls button img {
-    width: 60px;
+    width: 3.1vw;
 }
 
 .gallery-wrapper-controls-next img {
@@ -265,8 +264,8 @@ button {
 }
 
 .social-web-item {
-    margin-bottom: 40px;
-    width: 100%;
+    margin-bottom: 2vw;
+    width: 2.1vw;
 }
 
 .background-news {
@@ -665,11 +664,11 @@ button {
 }
 
 .small-image-wrapper-button img {
-    width: 64px;
+    width: 3.3vw;
 }
 
 .big-image-wrapper-button img {
-    width: 156px;
+    width: 8.1vw;
 }
 
 .background-contacts {
