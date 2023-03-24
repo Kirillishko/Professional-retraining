@@ -89,9 +89,9 @@ button {
     justify-content: center;
 }
 
-.advantages-cards-short-item:nth-child(n+4) {
-    margin-bottom: 0;
-}
+/*.advantages-cards-short-item:nth-child(n+4) {*/
+/*    margin-bottom: 0;*/
+/*}*/
 
 .advantages-cards-long-item {
     background: #FFFFFF;
@@ -972,4 +972,22 @@ button {
 
 .partners-content-item:last-child {
     justify-content: center;
+}
+
+@media screen and (min-width: 1610px) {
+    .advantages-cards-short-item:nth-child(n+4) {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1610px){
+    .advantages-cards-short-item:nth-child(n+5) {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1073px) {
+    .advantages-cards-short-item {
+        width: calc(356px * var(--scale));
+    }
 }
