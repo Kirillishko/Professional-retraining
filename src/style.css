@@ -68,7 +68,7 @@ button {
 
 .advantages h1 {
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 60px;
     line-height: 70px;
     margin-top: 80px;
@@ -111,23 +111,23 @@ button {
 }
 
 .advantages-cards-long-item img {
-    width: calc(97px * var(--scale));
-    height: calc(97px * var(--scale));
+    width: calc(60px * var(--scale));
+    height: calc(60px * var(--scale));
     margin: auto;
 }
 
 .advantages-cards-long-item h3 {
-    font-weight: 100;
+    font-weight: 700;
     font-size: calc(30px * var(--scale));
-    line-height: calc(29px * var(--scale));
+    line-height: calc(35px * var(--scale));
     margin-top: 0;
     margin-bottom: calc(12px * var(--scale));
 }
 
 .advantages-cards-long-item p {
     font-weight: 100;
-    font-size: calc(22px * var(--scale));
-    line-height: calc(29px * var(--scale));
+    font-size: calc(30px * var(--scale));
+    line-height: calc(35px * var(--scale));
     margin-top: 0;
     margin-bottom: calc(12px * var(--scale));
 }
@@ -162,20 +162,17 @@ button {
 
 .advantages-cards-short-item h3 {
     font-weight: 100;
-    font-size: calc(22px * var(--scale));
-    line-height: calc(29px * var(--scale));
-    margin-top: 0;
-    margin-bottom: calc(12px * var(--scale));
+    font-size: calc(30px * var(--scale));
+    line-height: calc(35px * var(--scale));
     text-align: center;
-    margin-right: 30px;
-    margin-left: 30px;
+    margin: 0 30px calc(12px * var(--scale));
 }
 
 .advantages-cards-short-item p {
     font-weight: 400;
     margin-top: 0;
-    font-size: calc(18px * var(--scale));
-    line-height: calc(21px * var(--scale));
+    font-size: calc(30px * var(--scale));
+    line-height: calc(35px * var(--scale));
 }
 
 .gallery {
@@ -863,13 +860,7 @@ button {
 }
 
 .videonews-top h3 {
-    /*font-weight: 600;*/
-    /*font-size: 40px;*/
-    /*line-height: 47px;*/
-    /*margin-bottom: 20px;*/
-    /*margin-top: 80px;*/
-
-    font-weight: 600;
+    font-weight: 700;
     font-size: 60px;
     line-height: 70px;
     margin-top: 80px;
@@ -928,7 +919,7 @@ button {
 }
 
 .partners h1 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 60px;
     line-height: 70px;
     margin-top: 80px;
@@ -974,19 +965,20 @@ button {
     justify-content: center;
 }
 
-@media screen and (min-width: 1610px) {
+@media screen and (min-width: 1610px) {                 /* 1610 - ? */
     .advantages-cards-short-item:nth-child(n+4) {
         margin-bottom: 0;
     }
 }
 
-@media screen and (max-width: 1610px){
+@media screen and (max-width: 1610px){                  /* 0 - 1610 */
     .advantages-cards-short-item:nth-child(n+5) {
         margin-bottom: 0;
+        padding: calc(23px * var(--scale));
     }
 }
 
-@media screen and (max-width: 1073px) {
+@media screen and (max-width: 1090px) {             /* 0 - 1090 */
     .advantages-cards-short-item {
         width: calc(356px * var(--scale));
     }
