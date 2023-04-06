@@ -993,6 +993,13 @@ button {
     width: 100%;
     background: rgba(51, 51, 51, 0.75);
     z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wrapper.active {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .player {
@@ -1026,6 +1033,10 @@ button {
 
 .controls-play {
     cursor: pointer;
+}
+
+.controls-play-button {
+    transition: 1s;
 }
 
 .controls-time {
@@ -1098,98 +1109,3 @@ button {
 .controls-progress input[type="range"]::-ms-track {
     background-color: #0038C3;
  }
-
-/*.controls-progress input[type="range"] {*/
-/*    -webkit-appearance: none;*/
-/*    width: 100%;*/
-/*    background: transparent;*/
-/*}*/
-
-/*.controls-progress input[type="range"]::-webkit-slider-thumb {*/
-/*    -webkit-appearance: none;*/
-/*}*/
-
-/*.controls-progress input[type="range"]:focus {*/
-/*    outline: none;*/
-/*}*/
-
-/*.controls-progress input[type="range"]::-ms-track {*/
-/*    width: 100%;*/
-/*    cursor: pointer;*/
-/*    background: transparent;*/
-/*    border-color: transparent;*/
-/*    color: transparent;*/
-/*}*/
-
-/*.controls-progress input[type="range"]::-webkit-slider-thumb {*/
-/*    -webkit-appearance: none;*/
-/*    background: #32B9D7;*/
-/*    border-radius: 5px;*/
-/*    width: 10px;*/
-/*    height: 30px;*/
-/*    margin-top: -10px;*/
-/*}*/
-
-/*.controls-progress input[type="range"]::-moz-range-thumb {*/
-/*    box-shadow: 1px 1px 1px  #000, 0px 0px 1px #0d0d0d;*/
-/*    border: 1px solid #000;*/
-/*    height: 36px;*/
-/*    width: 16px;*/
-/*    border-radius: 3px;*/
-/*    background: #FFF;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.controls-progress input[type="range"]::-webkit-slider-runnable-track {*/
-/*    width: 100%;*/
-/*    height: 10px;*/
-/*    cursor: pointer;*/
-/*    background: #E4E9ED;*/
-/*    border-radius: 5px;*/
-/*}*/
-
-/*.controls-progress input[type="range"]:focus::-webkit-slider-runnable-track {*/
-/*    background: #E4E9ED;*/
-/*}*/
-
-/*.controls-progress input[type="range"]::-moz-range-track {*/
-/*    width: 100%;*/
-/*    height: 8.4px;*/
-/*    cursor: pointer;*/
-/*    box-shadow: 1px 1px 1px  #000, 0px 0px 1px #0d0d0d;*/
-/*    background: #3071A9;*/
-/*    border-radius: 1.3px;*/
-/*    border: 0.2px solid #010101;*/
-/*}*/
-
-/*.controls-progress input[type='range']::-ms-track {*/
-/*    width: 100%;*/
-/*    height: 8.4px;*/
-/*    cursor: pointer;*/
-/*    background: transparent;*/
-/*    border-color: transparent;*/
-/*    border-width: 16px 0;*/
-/*    color: transparent;*/
-/*}*/
-
-/*.controls-progress input[type='range']::-ms-fill-Lower {*/
-/*    background: #2A6495;*/
-/*    border: 0.2px solid #010101;*/
-/*    border-radius: 2.6px;*/
-/*    box-shadow: 1px 1px 1px #900008, 0px 0px 0px #0d0d0d;*/
-/*}*/
-
-/*.controls-progress input [type='range']:focus::-ms-fill-lower {*/
-/*    background: #3071A9;*/
-/*}*/
-
-/*.controls-progress input[type='range']::-ms-fill-upper {*/
-/*    background: #3071A9;*/
-/*    border: 0.2px solid #010101;*/
-/*    border-radius: 2.6px;*/
-/*    box-shadow: 1px 1px 1px #000, 0px 0px 1px #0d0d0d;*/
-/*}*/
-
-/*.controls-progress input[type='range']:focus::-ms-fill-upper {*/
-/*    background: #367ebd;*/
-/*}*/
