@@ -987,7 +987,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     width: 100%;
     background: #E5E5E5;
 }
@@ -1058,25 +1058,25 @@ button {
 }
 
 .controls-progress input[type="range"]::-moz-range-thumb {
-    height: 15px;
+    height: 25px;
     width: 25px;
-    background: #0037be;
+    background: #4B7EFE;
     appearance: none;
     cursor: pointer;
     border-radius: 50px;
-    box-shadow: -200px 0 0 185px #002786;
+    box-shadow: -80.8vw 0 0 80vw #2A66FE;
     border: 0
 }
 
 .controls-progress input[type="range"]::-ms-thumb
 {
-    height: 15px;
+    height: 25px;
     width: 25px;
-    background: #0037be;
+    background: #4B7EFE;
     appearance: none;
     cursor: pointer;
     border-radius: 50px;
-    box-shadow: -200px 0 0 185px #002786;
+    box-shadow: -80.8vw 0 0 80vw #2A66FE;
     border: 0
 }
 
@@ -1086,11 +1086,11 @@ button {
 }
 
  .controls-progress input[type="range"]::-moz-range-track {
-     background-color: red;
+     background-color: #0038C3;
  }
 
 .controls-progress input[type="range"]::-ms-track {
-    background-color: red;
+    background-color: #0038C3;
  }
 
 /*.controls-progress input[type="range"] {*/
