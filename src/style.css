@@ -984,18 +984,24 @@ button {
 }
 
 .wrapper {
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     /*min-height: 100vh;*/
+    height: 100%;
     width: 100%;
-    background: #E5E5E5;
+    background: rgba(51, 51, 51, 0.75);
+    z-index: 1;
 }
 
 .player {
     /*max-width: 850px;*/
-    width: 100%;
+    width: 70%;
     border-radius: 30px;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
 }
 
 .player video {
