@@ -11,20 +11,30 @@
     <script src="videoplayer.js"></script>
 </head>
 <body>
-<!--    <div class="header">-->
-<!--        <div class="header-button">-->
-<!--            <input id="scroll-button" type="button" value="Отправить заявку"/>-->
-<!--        </div>-->
-<!--    </div>-->
-
     <div class="wrapper">
-        <div class="player">
-            <video class="video"></video>
+        <div class="player" data-volume-level="high">
+            <video class="video"    ></video>
             <div class="controls">
-                <div class="controls-play"><img class="controls-play-button" src="images/buttons/button-play.png"/></div>
-                <div class="controls-time">00:00</div>
-                <div class="controls-progress"><input type="range" class="progress" min="0" max="100" step="1" value="1"></div>
-                <div class="controls-screen"><img class="controls-screen-button" src="images/buttons/video_frame_full.png"/></div>
+                <div class="controls-progress"><input type="range" class="progress" min="0" max="200" step="1" value="1"></div>
+                <div class="controls-buttons">
+                    <div class="controls-buttons-left">
+                        <div class="controls-play"><img class="controls-play-button" src="images/buttons/button-play.png"/></div>
+                        <div class="controls-sound">
+<!--                            <img class="controls-sound-button" src="images/buttons/sound_high.png"/>-->
+<!--                            <input type="range" class="controls-sound-progress" min="0" max="100" step="1" value="100">-->
+                            <button class="controls-sound-buttons">
+                                <img class="controls-sound-high" src="images/buttons/sound_high.png"/>
+                                <img class="controls-sound-low" src="images/buttons/sound_low.png"/>
+                                <img class="controls-sound-off" src="images/buttons/sound_off.png"/>
+                            </button>
+                            <input class="controls-sound-progress" type="range" min="0" max="1" step="any" value="1">
+                        </div>
+                    </div>
+                    <div class="controls-buttons-right">
+                        <div class="controls-time">00:00</div>
+                        <div class="controls-screen"><img class="controls-screen-button" src="images/buttons/video_frame_full.png"/></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -209,6 +219,7 @@
             </div>
         </div>
     </div>
+
     <div class="partners">
         <h1>Партнеры</h1>
         <div class="partners-content">

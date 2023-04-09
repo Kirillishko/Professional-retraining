@@ -1028,8 +1028,9 @@ button {
     border-radius: 0 0 30px 30px;
     display: flex;
     align-items: center;
-    padding: 20px 40px;
+    /*padding: 20px 40px;*/
     margin-top: -5px;
+    flex-direction: column;
 }
 
 .controls.fullscreen {
@@ -1042,6 +1043,23 @@ button {
     align-items: center;
     padding: 20px 40px;
     margin-top: -5px;
+}
+
+.controls-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 40px 20px 40px;
+}
+
+.controls-buttons-left {
+    display: flex;
+    align-items: center
+}
+
+.controls-buttons-right {
+    display: flex;
+    align-items: center
 }
 
 .controls-stop {
@@ -1066,6 +1084,46 @@ button {
     color: #E5E5E5;
 }
 
+.controls-sound {
+    display: flex;
+    align-items: center;
+}
+
+.controls-sound-high,
+.controls-sound-low,
+.controls-sound-off {
+    display: none;
+}
+
+.player[data-volume-level="high"] .controls-sound-high {
+    display: block;
+}
+
+.player[data-volume-level="low"] .controls-sound-low {
+    display: block;
+}
+
+.player[data-volume-level="off"] .controls-sound-off {
+    display: block;
+}
+
+.controls-sound-progress {
+    width: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: width 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.controls-sound:hover .controls-sound-progress,
+.controls-sound-progress:focus-within {
+    width: 100%;
+    transform: scaleX(1);
+}
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+
 .controls-progress {
     display: flex;
     width: 100%;
@@ -1078,18 +1136,19 @@ button {
     width: 100%;
     overflow: hidden;
     outline: none;
-    border-radius: 50px;
+    /*border-radius: 50px;*/
+    margin: 0;
 }
 
 .controls-progress input[type="range"]::-webkit-slider-thumb {
     height: 25px;
-    width: 25px;
-    background: #4B7EFE;
+    width: 0;
+    background: transparent;
     appearance: none;
     cursor: pointer;
-    border-radius: 50px;
-    box-shadow: -80.8vw 0 0 80vw #2A66FE;
-    border: 0
+    border-radius: 0;
+    box-shadow: -80.8vw 0 0 80.8vw #2A66FE;
+    border: 0;
 }
 
 .controls-progress input[type="range"]::-moz-range-thumb {
@@ -1100,7 +1159,7 @@ button {
     cursor: pointer;
     border-radius: 50px;
     box-shadow: -80.8vw 0 0 80vw #2A66FE;
-    border: 0
+    border: 0;
 }
 
 .controls-progress input[type="range"]::-ms-thumb
@@ -1112,7 +1171,7 @@ button {
     cursor: pointer;
     border-radius: 50px;
     box-shadow: -80.8vw 0 0 80vw #2A66FE;
-    border: 0
+    border: 0;
 }
 
 .controls-progress input[type="range"]::-webkit-slider-runnable-track {

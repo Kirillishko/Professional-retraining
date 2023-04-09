@@ -8,19 +8,23 @@ document.addEventListener("DOMContentLoaded", function() {
         progress = document.querySelector('.progress'),
         time = document.querySelector('.controls-time'),
         screen = document.querySelector('.controls-screen'),
+        soundButton = document.querySelector('.controls-sound-buttons'),
+        soundProgress = document.querySelector('.controls-sound-progress'),
         videoButtons = [...document.querySelectorAll('.big-image-wrapper-button'), ...document.querySelectorAll('.small-image-wrapper-button')];
-        videoImages = [...document.querySelectorAll('.big-image-wrapper-button img'), ...document.querySelectorAll('.small-image-wrapper-button img')];
 
-    let isFullScreen = false;
+    let isVideoPlaying = false;
+    const progressMax = progress.max;
 
     function toggleVideoStatus() {
         if (video.paused) {
             video.play();
             playButtonImg.src = 'images/buttons/button-stop.png';
+            isVideoPlaying = true;
         }
         else {
             video.pause();
             playButtonImg.src = 'images/buttons/button-play.png';
+            isVideoPlaying = false;
         }
     }
 
@@ -29,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function setTime() {
         const currentTime = video.currentTime;
         const allTime = video.duration;
-        progress.value = (currentTime / allTime) * 100;
+        progress.value = (currentTime / allTime) * progressMax;
 
         const currentMinutes = Math.floor(currentTime / 60);
         const allMinutes = Math.floor(allTime / 60);
@@ -40,8 +44,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function setProgress() {
-        video.currentTime = (progress.value * video.duration) / 100;
-        video.play();
+        video.currentTime = (progress.value * video.duration) / progressMax;
+
+        if (isVideoPlaying)
+            video.play();
+
         video.addEventListener('timeupdate', setTime);
     }
 
@@ -63,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function showVideo() {
         wrapper.classList.add('active');
         progress.value = 0;
-        video.muted = true;
 
         const allMinutes = Math.floor(video.duration / 60);
         const allSeconds = formatTime(Math.floor(video.duration % 60));
@@ -73,24 +79,45 @@ document.addEventListener("DOMContentLoaded", function() {
     function onProgressInput() {
         video.removeEventListener('timeupdate', setTime);
         video.pause();
+        video.currentTime = (progress.value * video.duration) / progressMax;
     }
 
-    function fullScreenToggle() {
-        if (isFullScreen) {
-            player.classList.remove('fullscreen');
-            video.classList.remove('fullscreen');
-            controls.classList.remove('fullscreen');
+    function toggleFullScreen() {
+        if (document.fullscreenElement == null) {
+            video.requestFullscreen();
         } else {
-            player.classList.add('fullscreen');
-            video.classList.add('fullscreen');
-            controls.classList.add('fullscreen');
+            document.exitFullscreen();
+        }
+    }
+
+    function toggleMute() {
+        video.muted = !video.muted;
+    }
+
+    soundProgress.addEventListener('input', e => {
+        video.volume = e.target.value;
+        video.muted = e.target.value === 0;
+    })
+
+    video.addEventListener('volumechange', () => {
+        soundProgress.value = video.volume;
+        let volumeLevel;
+
+        if (video.muted || video.volume === 0) {
+            soundProgress.value = 0;
+            volumeLevel = "off";
+        } else if (video.volume >= 0.5) {
+            volumeLevel = "high";
+        } else {
+            volumeLevel = "low";
         }
 
-        isFullScreen = !isFullScreen;
-    }
+        player.dataset.volumeLevel = volumeLevel;
+    })
+
+    soundButton.addEventListener('click', toggleMute);
 
     playButton.addEventListener('click', toggleVideoStatus);
-    video.addEventListener('click', toggleVideoStatus);
     video.addEventListener('timeupdate', setTime);
     progress.addEventListener('change', setProgress);
     video.addEventListener('ended', onEnded);
@@ -102,6 +129,25 @@ document.addEventListener("DOMContentLoaded", function() {
     videoButtons[1].addEventListener('click', () => openVideo('images/videos/Программисты%20из%20Стерлитамака.mp4'));
     videoButtons[2].addEventListener('click', () => openVideo('images/videos/Хакатон%20«КИБЕР%20102».mp4'));
     video.addEventListener('loadedmetadata', showVideo);
-    screen.addEventListener('click', fullScreenToggle);
+    screen.addEventListener('click', toggleFullScreen);
     progress.addEventListener('input', onProgressInput);
+
+    let clickCount = 0;
+
+    video.onclick = event => {
+        clickCount++;
+        console.log("e " + event.detail);
+        console.log("c " + clickCount);
+
+        setTimeout(() => {
+            if (clickCount === 1) {
+                toggleVideoStatus();
+            } else if (clickCount === 2) {
+                toggleFullScreen();
+            }
+
+            clickCount = 0;
+        }, 200);
+    };
+
 })
