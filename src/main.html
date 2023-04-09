@@ -11,11 +11,12 @@
     <script src="videoplayer.js"></script>
 </head>
 <body>
+    <div style="background: cadetblue; width: 150px; height: 150px; position: fixed; z-index: 5"></div>
     <div class="wrapper">
         <div class="player" data-volume-level="high">
             <video class="video"    ></video>
             <div class="controls">
-                <div class="controls-progress"><input type="range" class="progress" min="0" max="200" step="1" value="1"></div>
+                <div class="controls-progress"><input type="range" class="progress" min="0" max="200" step="any" value="1"></div>
                 <div class="controls-buttons">
                     <div class="controls-buttons-left">
                         <div class="controls-play"><img class="controls-play-button" src="images/buttons/button-play.png"/></div>
@@ -27,7 +28,9 @@
                                 <img class="controls-sound-low" src="images/buttons/sound_low.png"/>
                                 <img class="controls-sound-off" src="images/buttons/sound_off.png"/>
                             </button>
-                            <input class="controls-sound-progress" type="range" min="0" max="1" step="any" value="1">
+                            <div class="controls-sound-wrap">
+                                <input class="controls-sound-wrap-range" type="range" min="0" max="1" step="any" value="1">
+                            </div>
                         </div>
                     </div>
                     <div class="controls-buttons-right">
