@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
         video.currentTime = 0;
         wrapper.classList.remove('active');
         playButtonImg.src = 'images/buttons/button-play.png';
+        window.removeEventListener("keydown", arrow_keys_handler, false);
     }
 
     function showVideo() {
@@ -89,6 +90,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const allMinutes = Math.floor(video.duration / 60);
         const allSeconds = formatTime(Math.floor(video.duration % 60));
         time.innerHTML = `0:00 / ${allMinutes}:${allSeconds}`;
+
+        window.addEventListener("keydown", arrow_keys_handler, false);
     }
 
     function onProgressInput() {
@@ -226,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         video.muted = video.volume === 0;
 
-        let currentValue = video.volume;
+        let currentValue = video.volume * soundProgress.max * 100;
         soundProgress.style.background =
             `linear-gradient(to right,
             #4B7EFE 0%, #4B7EFE ` + currentValue + `%,
@@ -262,7 +265,6 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(event.key);
     });
 
-
     let clickCount = 0;
 
     video.onclick = event => {
@@ -277,6 +279,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
             clickCount = 0;
         }, 200);
+    };
+
+    var arrow_keys_handler = function(e) {
+        switch(e.code){
+            case "ArrowUp": case "ArrowDown": case "ArrowLeft": case "ArrowRight":
+            case "Space": e.preventDefault(); break;
+            default: break; // do not block other keys
+        }
     };
 
 
