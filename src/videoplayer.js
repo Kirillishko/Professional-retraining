@@ -172,8 +172,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.target === wrapper)
             closeVideo();
     });
-    videoButtons[0].addEventListener('click', () => openVideo('images/videos/IT%20forum%20в%20СФ%20УУНИТ%2021.02.2023.mp4'));
-    videoButtons[1].addEventListener('click', () => openVideo('images/videos/Программисты%20из%20Стерлитамака.mp4'));
+    videoButtons[0].addEventListener('click', () => openVideo('images/videos/Программисты%20из%20Стерлитамака.mp4'));
+    videoButtons[1].addEventListener('click', () => openVideo('images/videos/IT%20forum%20в%20СФ%20УУНИТ%2021.02.2023.mp4'));
     videoButtons[2].addEventListener('click', () => openVideo('images/videos/Хакатон%20«КИБЕР%20102».mp4'));
     video.addEventListener('loadedmetadata', showVideo);
     screen.addEventListener('click', toggleFullScreen);
@@ -216,9 +216,10 @@ document.addEventListener("DOMContentLoaded", function() {
         video.currentTime = (progress.value * video.duration) / progressMax + value;
     }
 
+    let soundTimeout;
+
     function rewindSound(value) {
         value /= 100;
-        console.log(video.volume);
 
         if (video.volume + value < 0)
             video.volume = 0;
@@ -234,11 +235,18 @@ document.addEventListener("DOMContentLoaded", function() {
             `linear-gradient(to right,
             #4B7EFE 0%, #4B7EFE ` + currentValue + `%,
             #0038C3 ` + currentValue + `%, #0038C3 100%)`;
+
+        soundProgress.classList.add('active');
+        clearTimeout(soundTimeout);
+        soundTimeout = setTimeout(() => soundProgress.classList.remove('active'), 5000);
     }
 
     document.addEventListener('keydown', function (event) {
         if (!wrapper.classList.contains('active'))
             return;
+
+        if (event.key === 'Escape')
+            closeVideo();
 
         if (event.key === 'f')
             toggleFullScreen();
@@ -246,23 +254,17 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.key === ' ')
             toggleVideoStatus();
 
-        if (event.key === 'ArrowRight') {
+        if (event.key === 'ArrowRight')
             rewindVideo(5);
-        }
 
-        if (event.key === 'ArrowLeft') {
+        if (event.key === 'ArrowLeft')
             rewindVideo(-5);
-        }
 
-        if (event.key === 'ArrowUp') {
+        if (event.key === 'ArrowUp')
             rewindSound(5);
-        }
 
-        if (event.key === 'ArrowDown') {
+        if (event.key === 'ArrowDown')
             rewindSound(-5);
-        }
-
-        console.log(event.key);
     });
 
     let clickCount = 0;
@@ -281,28 +283,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 200);
     };
 
-    var arrow_keys_handler = function(e) {
+    const arrow_keys_handler = function(e) {
         switch(e.code){
             case "ArrowUp": case "ArrowDown": case "ArrowLeft": case "ArrowRight":
             case "Space": e.preventDefault(); break;
             default: break; // do not block other keys
         }
     };
-
-
-
-    // var timeout;
-    // document.querySelector('.wrap').addEventListener('focusin mouseover mousedown hover', function() {
-    //     window.clearTimeout(timeout);
-    //     document.querySelector('.wrap').classList.add('hover');
-    // });
-    // document.querySelector('.wrap').addEventListener('focusout mouseout mouseup', function() {
-    //     window.clearTimeout(timeout);
-    //     timeout = setTimeout(function(){removeHoverClass();}, 1000);
-    // });
-    // function removeHoverClass() {
-    //     if (!document.querySelector('.wrap').is(":hover")) {
-    //         document.querySelector('.wrap').classList.remove('hover');
-    //     }
-    // }
 })
