@@ -214,6 +214,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function rewindVideo(value) {
         video.currentTime = (progress.value * video.duration) / progressMax + value;
+
+        if (!video.paused) {
+            showControls();
+            clearTimeout(controlsInterval);
+            controlsInterval = setTimeout(hideControls, 5000);
+        }
     }
 
     let soundTimeout;
@@ -239,6 +245,12 @@ document.addEventListener("DOMContentLoaded", function() {
         soundProgress.classList.add('active');
         clearTimeout(soundTimeout);
         soundTimeout = setTimeout(() => soundProgress.classList.remove('active'), 5000);
+
+        if (!video.paused) {
+            showControls();
+            clearTimeout(controlsInterval);
+            controlsInterval = setTimeout(hideControls, 5000);
+        }
     }
 
     document.addEventListener('keydown', function (event) {
@@ -280,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             clickCount = 0;
-        }, 200);
+        },       200);
     };
 
     const arrow_keys_handler = function(e) {
