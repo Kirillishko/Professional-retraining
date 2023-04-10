@@ -15,8 +15,22 @@ document.addEventListener("DOMContentLoaded", function() {
     let isVideoPlaying = false;
     const progressMax = progress.max;
 
+    let controlsInterval;
+
+    function hideControls() {
+        controls.classList.add('unactive');
+        player.classList.add('unactive');
+    }
+
+    function showControls() {
+        controls.classList.remove('unactive');
+        player.classList.remove('unactive');
+    }
+
     function toggleVideoStatus() {
         if (video.paused) {
+            clearTimeout(controlsInterval);
+            controlsInterval = setTimeout(hideControls, 5000);
             video.play();
             playButtonImg.src = 'images/buttons/button-stop.png';
             isVideoPlaying = true;
@@ -25,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             video.pause();
             playButtonImg.src = 'images/buttons/button-play.png';
             isVideoPlaying = false;
+            showControls();
         }
     }
 
@@ -95,12 +110,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function toggleFullScreen() {
         if (document.fullscreenElement == null) {
-            video.requestFullscreen();
-            // controls.classList.add('fullscreen');
+            player.requestFullscreen();
         } else {
             document.exitFullscreen();
         }
+
+        player.classList.toggle('fullscreen');
+        controls.classList.toggle('fullscreen');
+        // bottom: -5.1vw;
     }
+
+    document.addEventListener("fullscreenchange", () => {
+        wrapper.classList.toggle("full-screen", document.fullscreenElement);
+    })
 
     function toggleMute() {
         video.muted = !video.muted;
@@ -156,22 +178,95 @@ document.addEventListener("DOMContentLoaded", function() {
     soundProgress.addEventListener('input', moveSoundSlider);
     soundButton.addEventListener('mouseover', () => soundProgress.classList.add('active'));
     soundButton.addEventListener('mouseout', (event) => {
-        console.log(event.relatedTarget);
         if (event.relatedTarget !== soundProgress)
             soundProgress.classList.remove('active')
     });
     soundProgress.addEventListener('mouseout', (event) => {
-        console.log(event.relatedTarget);
         if (event.relatedTarget !== soundButton)
             soundProgress.classList.remove('active')
     });
+
+    let toHide = false;
+
+    player.addEventListener('mousemove', (event) => {
+        if (toHide)
+            return;
+
+        if (!video.paused) {
+            showControls();
+            clearTimeout(controlsInterval);
+            controlsInterval = setTimeout(hideControls, 5000);
+        }
+    })
+
+    controls.addEventListener('mouseenter', () => {
+        showControls();
+        clearTimeout(controlsInterval);
+        toHide = true;
+    });
+
+    controls.addEventListener('mouseleave', () => {
+        toHide = false;
+    });
+
+    function rewindVideo(value) {
+        video.currentTime = (progress.value * video.duration) / progressMax + value;
+    }
+
+    function rewindSound(value) {
+        value /= 100;
+        console.log(video.volume);
+
+        if (video.volume + value < 0)
+            video.volume = 0;
+        else if (video.volume + value > 1)
+            video.volume = 1;
+        else
+            video.volume = video.volume + value;
+
+        video.muted = video.volume === 0;
+
+        let currentValue = video.volume;
+        soundProgress.style.background =
+            `linear-gradient(to right,
+            #4B7EFE 0%, #4B7EFE ` + currentValue + `%,
+            #0038C3 ` + currentValue + `%, #0038C3 100%)`;
+    }
+
+    document.addEventListener('keydown', function (event) {
+        if (!wrapper.classList.contains('active'))
+            return;
+
+        if (event.key === 'f')
+            toggleFullScreen();
+
+        if (event.key === ' ')
+            toggleVideoStatus();
+
+        if (event.key === 'ArrowRight') {
+            rewindVideo(5);
+        }
+
+        if (event.key === 'ArrowLeft') {
+            rewindVideo(-5);
+        }
+
+        if (event.key === 'ArrowUp') {
+            rewindSound(5);
+        }
+
+        if (event.key === 'ArrowDown') {
+            rewindSound(-5);
+        }
+
+        console.log(event.key);
+    });
+
 
     let clickCount = 0;
 
     video.onclick = event => {
         clickCount++;
-        console.log("e " + event.detail);
-        console.log("c " + clickCount);
 
         setTimeout(() => {
             if (clickCount === 1) {
@@ -183,6 +278,8 @@ document.addEventListener("DOMContentLoaded", function() {
             clickCount = 0;
         }, 200);
     };
+
+
 
     // var timeout;
     // document.querySelector('.wrap').addEventListener('focusin mouseover mousedown hover', function() {
