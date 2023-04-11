@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         playButtonImg = document.querySelector('.controls-play-button'),
         progress = document.querySelector('.progress'),
         time = document.querySelector('.controls-time'),
-        screen = document.querySelector('.controls-screen'),
+        screen = document.querySelector('.controls-screen-button'),
         soundButton = document.querySelector('.controls-sound-buttons'),
         soundProgress = document.querySelector('.controls-sound-wrap-range'),
         videoButtons = [...document.querySelectorAll('.big-image-wrapper-button'), ...document.querySelectorAll('.small-image-wrapper-button')];
@@ -114,8 +114,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function toggleFullScreen() {
         if (document.fullscreenElement == null) {
             player.requestFullscreen();
+            screen.src = 'images/buttons/video_frame_default.png';
         } else {
             document.exitFullscreen();
+            screen.src = 'images/buttons/video_frame_full.png';
         }
 
         player.classList.toggle('fullscreen');
