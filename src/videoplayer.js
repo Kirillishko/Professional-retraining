@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", function() {
             clearTimeout(controlsInterval);
             controlsInterval = setTimeout(hideControls, 5000);
             video.play();
-            playButtonImg.src = 'images/buttons/button-stop.png';
+            playButtonImg.src = 'src/images/buttons/button-stop.png';
             isVideoPlaying = true;
         }
         else {
             video.pause();
-            playButtonImg.src = 'images/buttons/button-play.png';
+            playButtonImg.src = 'src/images/buttons/button-play.png';
             isVideoPlaying = false;
             showControls();
         }
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function onEnded() {
-        playButtonImg.src = 'images/buttons/button-play.png';
+        playButtonImg.src = 'src/images/buttons/button-play.png';
     }
 
     function openVideo(src) {
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         video.pause();
         video.currentTime = 0;
         wrapper.classList.remove('active');
-        playButtonImg.src = 'images/buttons/button-play.png';
+        playButtonImg.src = 'src/images/buttons/button-play.png';
         window.removeEventListener("keydown", arrow_keys_handler, false);
     }
 
@@ -114,10 +114,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function toggleFullScreen() {
         if (document.fullscreenElement == null) {
             player.requestFullscreen();
-            screen.src = 'images/buttons/video_frame_default.png';
+            screen.src = 'src/images/buttons/video_frame_default.png';
         } else {
             document.exitFullscreen();
-            screen.src = 'images/buttons/video_frame_full.png';
+            screen.src = 'src/images/buttons/video_frame_full.png';
         }
 
         player.classList.toggle('fullscreen');
@@ -174,9 +174,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.target === wrapper)
             closeVideo();
     });
-    videoButtons[0].addEventListener('click', () => openVideo('images/videos/Программисты%20из%20Стерлитамака.mp4'));
-    videoButtons[1].addEventListener('click', () => openVideo('images/videos/IT%20forum%20в%20СФ%20УУНИТ%2021.02.2023.mp4'));
-    videoButtons[2].addEventListener('click', () => openVideo('images/videos/Хакатон%20«КИБЕР%20102».mp4'));
+    videoButtons[0].addEventListener('click', () => openVideo('src/images/videos/Программисты%20из%20Стерлитамака.mp4'));
+    videoButtons[1].addEventListener('click', () => openVideo('src/images/videos/IT%20forum%20в%20СФ%20УУНИТ%2021.02.2023.mp4'));
+    videoButtons[2].addEventListener('click', () => openVideo('src/images/videos/Хакатон%20«КИБЕР%20102».mp4'));
     video.addEventListener('loadedmetadata', showVideo);
     screen.addEventListener('click', toggleFullScreen);
     progress.addEventListener('input', onProgressInput);
