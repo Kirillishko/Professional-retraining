@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function closeVideo() {
         video.pause();
         video.currentTime = 0;
+        video.src = "";
         wrapper.classList.remove('active');
         playButtonImg.src = 'src/images/buttons/button-play.png';
         window.removeEventListener("keydown", arrow_keys_handler, false);
