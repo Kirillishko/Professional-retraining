@@ -6,6 +6,66 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+    /*font-size: calc(22px + 8 * (100vw / 1920));*/
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h6 {
+    font-size: 18px;
+}
+
+input[type="submit"] {
+    font-size: 45px;
+}
+
+input:not([type="submit"]) {
+    font-size: 25px;
+}
+
+@media screen and (min-width: 767px) {
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 30px;
+        /*font-size: calc(22px + (8 + 8 * 0.7) * ((100vw - 320px) / 1920));*/
+    }
+
+    h4 {
+        font-size: 25px;
+    }
+
+    h6 {
+        font-size: 18px;
+    }
+
+    input[type="submit"] {
+        font-size: 45px;
+    }
+
+    input:not([type="submit"]) {
+        font-size: 25px;
+    }
+}
+
 body {
     color: #000000;
     background-color: #E5E5E5;
@@ -44,7 +104,7 @@ button {
     background-color: white;
     color: black;
     font-weight: 400;
-    font-size: 24px;
+    /*font-size: 24px;*/
     line-height: 28px;
     width: 100%;
     padding: 32px 24px;
@@ -58,7 +118,7 @@ button {
     line-height: 42px;
     color: #0047ff;
     cursor: pointer;
-    font-size: 1.6vw;
+    /*font-size: 1.6vw;*/
 }
 
 .advantages {
@@ -69,7 +129,7 @@ button {
 .advantages h1 {
     text-align: center;
     font-weight: 700;
-    font-size: 60px;
+    /*font-size: 60px;*/
     line-height: 70px;
     margin-top: 80px;
     margin-bottom: 60px;
@@ -116,17 +176,17 @@ button {
     margin: auto;
 }
 
-.advantages-cards-long-item h3 {
+.advantages-cards-long-item h3:first-child {
     font-weight: 700;
-    font-size: calc(30px * var(--scale));
+    /*font-size: calc(30px * var(--scale));*/
     line-height: calc(35px * var(--scale));
     margin-top: 0;
     margin-bottom: calc(12px * var(--scale));
 }
 
-.advantages-cards-long-item p {
+.advantages-cards-long-item h3 {
     font-weight: 100;
-    font-size: calc(30px * var(--scale));
+    /*font-size: calc(30px * var(--scale));*/
     line-height: calc(35px * var(--scale));
     margin-top: 0;
     margin-bottom: calc(12px * var(--scale));
@@ -161,7 +221,7 @@ button {
 
 .advantages-cards-short-item h3 {
     font-weight: 100;
-    font-size: calc(30px * var(--scale));
+    /*font-size: calc(30px * var(--scale));*/
     line-height: calc(35px * var(--scale));
     text-align: center;
     margin: 0 30px calc(12px * var(--scale));
@@ -170,7 +230,7 @@ button {
 .advantages-cards-short-item p {
     font-weight: 400;
     margin-top: 0;
-    font-size: calc(30px * var(--scale));
+    /*font-size: calc(30px * var(--scale));*/
     line-height: calc(35px * var(--scale));
 }
 
@@ -196,6 +256,8 @@ button {
     height: calc(42vw * var(--scale));
     border: 1px solid #0047FF;
     border-radius: 60px;
+    border-radius: 3vw;
+    overflow: hidden;
 }
 
 .gallery-wrapper-right {
@@ -212,14 +274,14 @@ button {
     cursor: pointer;
 }
 
-.gallery-wrapper-right p, .gallery-wrapper-right hr {
+.gallery-wrapper-right h6, .gallery-wrapper-right hr {
     writing-mode: vertical-rl;
 }
 
-.gallery-wrapper-right p {
+.gallery-wrapper-right h6 {
     margin: 0;
     font-weight: 500;
-    font-size: 18px;
+    /*font-size: 18px;*/
     line-height: 21px;
 }
 
@@ -235,7 +297,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 60px;
+    /*border-radius: 60px;*/
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
  }
@@ -245,17 +307,20 @@ button {
 }
 
 .gallery-wrapper-controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     position: absolute;
     bottom: 0;
     right: 0;
     background-color: white;
     border-radius: 60px 0;
-    border: 1px solid #0047FF;
+    border-top: 1px solid #0047FF;
+    border-left: 1px solid #0047FF;
+    border-radius: 3vw 0;
 }
 
 .gallery-wrapper-controls button {
-    width: 160px;
-    height: 105px;
     width: 8.3vw;
     height: 5.5vw;
 }
@@ -268,13 +333,28 @@ button {
     width: 3.1vw;
 }
 
+.gallery-wrapper-controls-prev img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .gallery-wrapper-controls-next img {
-    transform: scaleX(-1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(-1);
 }
 
 .social-web-item {
     margin-bottom: 2vw;
     width: 2.1vw;
+}
+
+.gallery-wrapper-controls-prev,
+.gallery-wrapper-controls-next {
+    position: relative;
 }
 
 .background-news {
@@ -322,7 +402,7 @@ button {
 
 .news-top-content-left h2 {
     font-weight: 600;
-    font-size: 40px;
+    /*font-size: 40px;*/
     line-height: 47px;
 }
 
@@ -334,7 +414,7 @@ button {
 
 .news-top-content-right p {
     font-weight: 600;
-    font-size: 30px;
+    /*font-size: 30px;*/
     line-height: 35px;
     margin-right: 89px;
 }
@@ -377,14 +457,14 @@ button {
 
 .news-content-short-item p {
     font-weight: 400;
-    font-size: 20px;
+    /*font-size: 20px;*/
     line-height: 23px;
     margin-bottom: 21px;
 }
 
 .news-content-short-item h3 {
     font-weight: 600;
-    font-size: 25px;
+    /*font-size: 25px;*/
     line-height: 29px;
     margin-bottom: 50px;
 }
@@ -442,14 +522,14 @@ button {
 
 .news-content-long-top-wrapper-date h4 {
     font-weight: 600;
-    font-size: 40px;
+    /*font-size: 40px;*/
     line-height: 47px;
     margin: 0;
 }
 
 .news-content-long-top-wrapper-date p {
     font-weight: 600;
-    font-size: 30px;
+    /*font-size: 30px;*/
     line-height: 35px;
     margin: 0;
 }
@@ -473,13 +553,13 @@ button {
 .news-content-long-top-wrapper-desc p {
     margin: 0;
     font-weight: 600;
-    font-size: 25px;
+    /*font-size: 25px;*/
     line-height: 29px;
 }
 
 .news-content-long-top-wrapper:last-child .news-content-long-top-wrapper-desc p{
     font-weight: 600;
-    font-size: 22px;
+    /*font-size: 22px;*/
     line-height: 26px;
 }
 
@@ -534,7 +614,7 @@ button {
 
 .videonews-top-left h3 {
     font-weight: 600;
-    font-size: 40px;
+    /*font-size: 40px;*/
     line-height: 47px;
     margin: 0;
     width: 65%;
@@ -542,7 +622,7 @@ button {
 
 .videonews-top-left p {
     font-weight: 600;
-    font-size: 30px;
+    /*font-size: 30px;*/
     line-height: 35px;
     margin: 0;
     text-align: center;
@@ -555,7 +635,7 @@ button {
 
 .videonews-top-right h3 {
     font-weight: 600;
-    font-size: 40px;
+    /*font-size: 40px;*/
     line-height: 47px;
     margin: 0;
     text-align: center;
@@ -582,7 +662,7 @@ button {
 
 .videonews-content-big-left p {
     font-weight: 600;
-    font-size: 25px;
+    /*font-size: 25px;*/
     line-height: 29px;
     margin: 40px 0 0 0;
 }
@@ -600,7 +680,7 @@ button {
 
 .videonews-content-big-right-item p {
     font-weight: 600;
-    font-size: 20px;
+    /*font-size: 20px;*/
     line-height: 23px;
     margin: 20px 0 0 0;
 }
@@ -614,7 +694,7 @@ button {
 
 .videonews-content-small p {
     font-weight: 600;
-    font-size: 25px;
+    /*font-size: 25px;*/
     line-height: 29px;
     padding: 40px 0;
     margin: 0;
@@ -639,7 +719,7 @@ button {
     text-align: left;
     color: #0047FF;
     font-weight: 600;
-    font-size: 30px;
+    /*font-size: 30px;*/
     line-height: 35px;
 }
 
@@ -724,14 +804,14 @@ button {
 
 .contacts-content-left h1 {
     font-weight: 700;
-    font-size: 60px;
+    /*font-size: 60px;*/
     line-height: 70px;
     margin: 0 0 50px;
 }
 
 .contacts-content-left p {
     font-weight: 100;
-    font-size: 30px;
+    /*font-size: 30px;*/
     line-height: 35px;
     margin: 0 0 30px;
 }
@@ -747,7 +827,7 @@ button {
 .contacts-content-left h3 {
     margin: 0;
     font-weight: 100;
-    font-size: 30px;
+    /*font-size: 30px;*/
     line-height: 41px;
 }
 
@@ -770,7 +850,7 @@ button {
 
 .contacts-content-right h2 {
     font-weight: 700;
-    font-size: 40px;
+    /*font-size: 40px;*/
     line-height: 47px;
     text-align: center;
 }
@@ -781,7 +861,7 @@ button {
     border-radius: 30px;
     border: 2px solid blue;
     font-weight: 400;
-    font-size: 24px;
+    /*font-size: 24px;*/
     line-height: 28px;
     width: 100%;
     padding: 36px 32px;
@@ -798,7 +878,7 @@ button {
     color: #FFF;
     margin-bottom: 0;
     cursor: pointer;
-    font-size: 1.8vw;
+    /*font-size: 1.8vw;*/
 }
 
 .contacts-content-right input::placeholder {
@@ -838,14 +918,14 @@ button {
 
 .footer-left-title p {
     font-weight: 500;
-    font-size: 30px;
+    /*font-size: 30px;*/
     line-height: 35px;
     margin: 0 0 5px 0;
 }
 
 .footer-left-title h3 {
     font-weight: 700;
-    font-size: 50px;
+    /*font-size: 50px;*/
     line-height: 59px;
     margin: 0;
 }
@@ -864,7 +944,7 @@ button {
 
 .videonews-top h3 {
     font-weight: 700;
-    font-size: 60px;
+    /*font-size: 60px;*/
     line-height: 70px;
     margin-top: 80px;
     margin-bottom: 60px;
@@ -889,9 +969,9 @@ button {
 
 }
 
-.videonews-content-left-item p {
+.videonews-content-left-item h3 {
     font-weight: 100;
-    font-size: 30px;
+    /*font-size: 30px;*/
     line-height: 29px;
 }
 
@@ -911,9 +991,9 @@ button {
 
 }
 
-.videonews-content-right-item p {
+.videonews-content-right-item h4 {
     font-weight: 100;
-    font-size: 25px;
+    /*font-size: 25px;*/
     line-height: 23px;
 }
 
@@ -923,7 +1003,7 @@ button {
 
 .partners h1 {
     font-weight: 700;
-    font-size: 60px;
+    /*font-size: 60px;*/
     line-height: 70px;
     margin-top: 80px;
     margin-bottom: 60px;
@@ -1079,7 +1159,7 @@ button {
     margin-left: auto;
     font-style: normal;
     font-weight: 400;
-    font-size: 1.5vw;
+    /*font-size: 1.5vw;*/
     line-height: 28px;
     color: #E5E5E5;
 }
@@ -1259,9 +1339,35 @@ video::-webkit-media-controls {
         width: 10vw;
     }
 
+    .videonews-content-left-item,
+    .videonews-content-right-item:first-child {
+        margin-bottom: 60px;
+    }
+
     .videonews-content-left-item p,
     .videonews-content-right-item p {
-        font-size: 30px;
+        /*font-size: 30px;*/
+    }
+
+    /*.advantages,*/
+    /*.videonews,*/
+    /*.partners,*/
+    /*.contacts,*/
+    /*.footer {*/
+    /*    width: 90%;*/
+    /*}*/
+
+    .gallery-wrapper-controls button {
+        width: 12vw;
+        height: 7.9518vw;
+    }
+
+    .gallery-wrapper-controls button img {
+        width: 5.5vw;
+    }
+
+    .player {
+        width: 100%;
     }
 }
 
