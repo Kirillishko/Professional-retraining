@@ -30,16 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
         e.target.value = value;
     });
 
+
     phoneInput.addEventListener('input', (e) => {
         let value = e.target.value;
-
-        if (value.length > 16) {
-            e.target.value = prevPhoneValue = value.slice(0, value.length - 1);
-            return;
-        }
-
-        console.log(value + " " + value.length);
-
         const numberexp = /[0-9]/i;
 
         if (numberexp.test(value.at(-1)) === false) {
@@ -47,28 +40,90 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             } else {
                 value = value.slice(0, value.length - 1);
-                e.target.value = prevPhoneValue = value;
+                setPhoneInputValue(value);
                 return;
             }
         }
 
-        if (value.length < 3)
-            value += " ";
+        let phoneNumber = "+7 (___) ___ __-__"
+        value = value.replace(/[^0-9]/g ,"");
 
-        if (value.length === 7) {
-            value = value.slice(0, value.length - 1) + " " + value.at(-1);
+        console.log("value: " + value);
+
+        if (value.length <= 1) {
+            setPhoneInputValue("+7 ");
+            return;
         }
 
-        if (value.length === 11) {
-            value = value.slice(0, value.length - 1) + " " + value.at(-1);
-        }
+        for (let i= 0; i < value.length - 1; i++)
+            phoneNumber = phoneNumber.replace("_", value[i + 1]);
 
-        if (value.length === 14) {
-            value = value.slice(0, value.length - 1) + "-" + value.at(-1);
-        }
+        console.log("phoneNumber: " + phoneNumber);
+        // phoneNumber = phoneNumber.replaceAll("x", "");
 
-        e.target.value = prevPhoneValue = value;
+        // const lastNumberIndex = phoneNumber.search(/\d(?=\D*$)/);
+
+        // console.log("lastNumberIndex: " + lastNumberIndex);
+        // phoneNumber = phoneNumber.slice(0, lastNumberIndex + 1);
+
+        // console.log(lastNumberIndex);
+
+        setPhoneInputValue(phoneNumber);
+
+        // let value = e.target.value;
+        //
+        // if (value.length > 16) {
+        //     e.target.value = prevPhoneValue = value.slice(0, value.length - 1);
+        //     return;
+        // }
+        //
+        // console.log(value + " " + value.length);
+        //
+        // const numberexp = /[0-9]/i;
+        //
+        // if (numberexp.test(value.at(-1)) === false) {
+        //     if (value.length === 3 && prevPhoneValue > value) {
+        //         return;
+        //     } else {
+        //         value = value.slice(0, value.length - 1);
+        //         e.target.value = prevPhoneValue = value;
+        //         return;
+        //     }
+        // }
+        //
+        // if (value.length < 3)
+        //     value += " ";
+        //
+        // if (value.length === 7) {
+        //     value = value.slice(0, value.length - 1) + " " + value.at(-1);
+        // }
+        //
+        // if (value.length === 11) {
+        //     value = value.slice(0, value.length - 1) + " " + value.at(-1);
+        // }
+        //
+        // if (value.length === 14) {
+        //     value = value.slice(0, value.length - 1) + "-" + value.at(-1);
+        // }
+        //
+        // e.target.value = prevPhoneValue = value;
     })
+
+    phoneInput.onkeydown = (e) => {
+        const key = e.keyCode || e.charCode;
+
+        if (key === 8 || key === 46) {
+            console.log("asd");
+            console.log(phoneInput.value);
+        }
+    };
+
+    phoneInput.onselectstart = () => false;
+
+    const setPhoneInputValue = (value) => {
+        phoneInput.value = value;
+        prevPhoneValue = value;
+    }
 
     emailInput.addEventListener('input', (e) => {
         console.log(e.target.value);
