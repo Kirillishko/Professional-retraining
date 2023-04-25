@@ -28,14 +28,14 @@ h6 {
 }
 
 input[type="submit"] {
-    font-size: 45px;
+    font-size: 38px;
 }
 
 input:not([type="submit"]) {
     font-size: 25px;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (max-width: 767px) {
     h1 {
         font-size: 60px;
     }
@@ -764,7 +764,7 @@ button {
 
 .background-contacts {
     width: 100%;
-    background-image: url("images/contacts-background.png");
+    background-image: url("images/contacts-background-phone.png");
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -788,7 +788,7 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -834,7 +834,7 @@ button {
 .contacts-content-right {
     background: #FFFFFF;
     border-radius: 30px;
-    width: 43%;
+    width: 31vw;
     display: flex;
     justify-content: center;
 }
@@ -1367,6 +1367,20 @@ video::-webkit-media-controls {
     }
 
     .player {
+        width: 100%;
+    }
+
+    .contacts-content {
+        flex-direction: column;
+    }
+
+    .contacts-content-left {
+        margin-bottom: 60px;
+        margin-top: 80px;
+    }
+
+    .contacts-content-left,
+    .contacts-content-right {
         width: 100%;
     }
 }
