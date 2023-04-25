@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         emailInput = document.querySelector('#email'),
         submitInput = document.querySelector('#submit');
 
+    let prevPhoneValue;
     phoneInput.value = "+7 ";
 
     nameInput.addEventListener('input', (e) => {
@@ -32,22 +33,41 @@ document.addEventListener("DOMContentLoaded", function() {
     phoneInput.addEventListener('input', (e) => {
         let value = e.target.value;
 
-        console.log(value.length);
-
-        let alphabetexp = /[0-9]/i;
-
-        if (alphabetexp.test(value.at(-1)) === false) {
-            value = value.slice(0, value.length - 1);
-            e.target.value = value;
+        if (value.length > 16) {
+            e.target.value = prevPhoneValue = value.slice(0, value.length - 1);
             return;
         }
 
+        console.log(value + " " + value.length);
 
+        const numberexp = /[0-9]/i;
+
+        if (numberexp.test(value.at(-1)) === false) {
+            if (value.length === 3 && prevPhoneValue > value) {
+                return;
+            } else {
+                value = value.slice(0, value.length - 1);
+                e.target.value = prevPhoneValue = value;
+                return;
+            }
+        }
 
         if (value.length < 3)
             value += " ";
 
-        e.target.value = value;
+        if (value.length === 7) {
+            value = value.slice(0, value.length - 1) + " " + value.at(-1);
+        }
+
+        if (value.length === 11) {
+            value = value.slice(0, value.length - 1) + " " + value.at(-1);
+        }
+
+        if (value.length === 14) {
+            value = value.slice(0, value.length - 1) + "-" + value.at(-1);
+        }
+
+        e.target.value = prevPhoneValue = value;
     })
 
     emailInput.addEventListener('input', (e) => {
