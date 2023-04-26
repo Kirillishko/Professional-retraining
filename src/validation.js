@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const nameInput = document.querySelector('#name'),
+    const form = document.querySelector('#form'),
+        nameInput = document.querySelector('#name'),
         phoneInput = document.querySelector('#phone'),
         emailInput = document.querySelector('#email'),
         submitInput = document.querySelector('#submit');
@@ -147,6 +148,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     emailInput.addEventListener('input', (e) => {
-        console.log(e.target.value);
+
+    })
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let nameCorrect, phoneCorrect, emailCorrect;
+        nameCorrect = phoneCorrect = emailCorrect = false;
+
+        nameCorrect = nameInput.value.length > 2;
+
+        const phoneNumbers = phoneInput.value.replace(/[^0-9]/g ,"");
+        phoneCorrect = phoneNumbers.length === 11;
+
+        const emailreg = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
+        emailCorrect = emailreg.test(emailInput.value);
+
+        console.log("Name: " + nameCorrect);
+        console.log("Phone: " + phoneCorrect);
+        console.log("Email: " + emailCorrect);
     })
 });
