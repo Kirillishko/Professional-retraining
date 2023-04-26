@@ -153,7 +153,12 @@ document.addEventListener("DOMContentLoaded", function() {
             value = value.slice(0, phoneInput.selectionStart) + key + value.slice(phoneInput.selectionEnd);
         }
         else {
+            let start = phoneInput.selectionStart;
             value = value.slice(0, phoneInput.selectionStart) + key + value.slice(phoneInput.selectionEnd + 1);
+
+            setTimeout(() => {
+                phoneInput.selectionEnd = phoneInput.selectionStart = start;
+            })
         }
 
         correctPhoneNumber(value);
@@ -180,35 +185,52 @@ document.addEventListener("DOMContentLoaded", function() {
         if (index <= 5)
             return 5;
 
+        // for (let i = index - 1; i > 4; i--) {
+        //     if (numberexp.test(value[i]) && value[i - 1] !== " ") {
+        //         if ((value[i + 1] === ")" && index !== i + 1) ||
+        //             (value[i + 1] === " " && index !== i + 1))
+        //             return i + 1;
+        //         else if (value[i - 1] === "-")
+        //             return i - 1;
+        //         else
+        //             return i;
+        //     }
+        // }
+
         for (let i = index - 1; i > 4; i--) {
-            if (numberexp.test(value[i]) && value[i - 1] !== " ") {
-                if ((value[i + 1] === ")" && index !== i + 1) ||
-                    (value[i + 1] === " " && index !== i + 1))
-                    return i + 1;
-                else if (value[i - 1] === "-")
-                    return i - 1;
-                else
-                    return i;
-            }
+            if (numberexp.test(value[i]))
+                return  i;
         }
     }
 
     const findClosestRightNumberIndex = (value, index) => {
         const numberexp = /[0-9]/i;
 
-        if (index < 4)
-            return 4;
+        if (index <= 4)
+            return 5;
 
-        for (let i = index + 1; i < value.length; i++) {
-            if (value[i - 1] === ")")
-                return i + 2;
-            if (value[i - 1] === " " || value[i - 1] === "-")
+        // for (let i = index + 1; i < value.length; i++) {
+        //     if (value[i - 1] === ")")
+        //         return i + 2;
+        //     if (value[i - 1] === " " || value[i - 1] === "-")
+        //         return i + 1;
+        //     else
+        //         return i;
+        // }
+
+        for (let i = index; i < value.length; i++) {
+            if (numberexp.test(value[i]))
                 return i + 1;
-            else
-                return i;
         }
 
-        return value.length;
+        if (value[index] !== "_") {
+            for (let i = index; i < value.length; i++) {
+                if (value[i] === "_")
+                    return i;
+            }
+        }
+
+        return index;
     }
 
     // phoneInput.onfocus = () => {
