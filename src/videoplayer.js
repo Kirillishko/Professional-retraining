@@ -118,9 +118,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (document.fullscreenElement == null) {
             player.requestFullscreen();
             screen.src = 'src/images/buttons/video_frame_default.png';
+            window.screen.orientation;
+            screen.orientation.lock("landscape");
         } else {
             document.exitFullscreen();
             screen.src = 'src/images/buttons/video_frame_full.png';
+            screen.orientation.unlock();
         }
 
         player.classList.toggle('fullscreen');
