@@ -118,11 +118,11 @@ document.addEventListener("DOMContentLoaded", function() {
         if (document.fullscreenElement == null) {
             player.requestFullscreen();
             screen.src = 'src/images/buttons/video_frame_default.png';
-            screen.orientation.lock("landscape");
+            window.screen.orientation.lock("landscape");
         } else {
             document.exitFullscreen();
             screen.src = 'src/images/buttons/video_frame_full.png';
-            screen.orientation.unlock();
+            window.screen.orientation.unlock();
         }
 
         player.classList.toggle('fullscreen');
