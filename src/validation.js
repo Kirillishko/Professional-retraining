@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
         submitInput = document.querySelector('#submit');
 
     let prevPhoneValue;
-    phoneInput.value = "+7 (123) 456 78-90";
-    // phoneInput.value = "+7 (___) ___ __-__";
+    // phoneInput.value = "+7 (123) 456 78-90";
+    phoneInput.value = "+7 (___) ___ __-__";
 
     nameInput.addEventListener('input', (e) => {
         let value = e.target.value;
@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        if (value.length === 1)
-            value = value.toUpperCase();
+        value = value.slice(0,1).toUpperCase() + value.slice(1);
 
         if (value.length > 1)
             value = value.slice(0,1) + value.slice(1, value.length).toLowerCase();
@@ -79,19 +78,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (phoneInput.selectionStart === phoneInput.selectionEnd) {
             value = value.slice(0, phoneInput.selectionStart) + key + value.slice(phoneInput.selectionEnd);
-        }
-        else {
+        } else {
             value = value.slice(0, phoneInput.selectionStart) + key + value.slice(phoneInput.selectionEnd + 1);
-
         }
 
         correctPhoneNumber(value);
 
-        const lastNumberIndex = phoneInput.search(/\d(?=\D*$)/);
-
-        setTimeout(() => {
-            phoneInput.selectionStart = phoneInput.selectionEnd = lastNumberIndex;
-        })
+        const lastNumberIndex = phoneInput.value.search(/\d(?=\D*$)/);
+        phoneInput.selectionStart = phoneInput.selectionEnd = lastNumberIndex + 1;
     };
 
     const correctPhoneNumber = (value) => {
@@ -147,10 +141,6 @@ document.addEventListener("DOMContentLoaded", function() {
         prevPhoneValue = value;
     }
 
-    emailInput.addEventListener('input', (e) => {
-
-    })
-
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -165,8 +155,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const emailreg = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
         emailCorrect = emailreg.test(emailInput.value);
 
-        console.log("Name: " + nameCorrect);
-        console.log("Phone: " + phoneCorrect);
-        console.log("Email: " + emailCorrect);
+        if (nameCorrect && phoneCorrect && emailCorrect) {
+
+        }
     })
 });
