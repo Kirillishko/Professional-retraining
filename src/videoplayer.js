@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function moveSoundSlider() {
-        let currentValue = soundProgress.value * soundProgress.max * 100;
+        const currentValue = soundProgress.value * soundProgress.max * 100;
         soundProgress.style.background =
             `linear-gradient(to right,
             #4B7EFE 0%, #4B7EFE ` + currentValue + `%,
