@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         playButtonImg = document.querySelector('.controls-play-button'),
         progress = document.querySelector('.progress'),
         time = document.querySelector('.controls-time'),
-        screen = document.querySelector('.controls-screen-button'),
+        screenButton = document.querySelector('.controls-screen-button'),
         soundButton = document.querySelector('.controls-sound-buttons'),
         soundProgress = document.querySelector('.controls-sound-wrap-range'),
         videoButtons = [...document.querySelectorAll('.big-image-wrapper-button'), ...document.querySelectorAll('.small-image-wrapper-button')];
@@ -117,12 +117,12 @@ document.addEventListener("DOMContentLoaded", function() {
     function toggleFullScreen() {
         if (document.fullscreenElement == null) {
             player.requestFullscreen();
-            screen.src = 'src/images/buttons/video_frame_default.png';
-            window.screen.orientation.lock("landscape");
+            screenButton.src = 'src/images/buttons/video_frame_default.png';
+            screen.orientation.lock("landscape");
         } else {
             document.exitFullscreen();
-            screen.src = 'src/images/buttons/video_frame_full.png';
-            window.screen.orientation.unlock();
+            screenButton.src = 'src/images/buttons/video_frame_full.png';
+            screen.orientation.unlock();
         }
 
         player.classList.toggle('fullscreen');
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
     videoButtons[1].addEventListener('click', () => openVideo('src/images/videos/IT%20forum%20в%20СФ%20УУНИТ%2021.02.2023.mp4'));
     videoButtons[2].addEventListener('click', () => openVideo('src/images/videos/Хакатон%20«КИБЕР%20102».mp4'));
     video.addEventListener('loadedmetadata', showVideo);
-    screen.addEventListener('click', toggleFullScreen);
+    screenButton.addEventListener('click', toggleFullScreen);
     progress.addEventListener('input', onProgressInput);
     soundProgress.addEventListener('input', moveSoundSlider);
     soundButton.addEventListener('mouseover', () => soundProgress.classList.add('active'));
