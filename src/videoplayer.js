@@ -118,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (document.fullscreenElement == null) {
             player.requestFullscreen();
             screen.src = 'src/images/buttons/video_frame_default.png';
-            window.screen.orientation;
             screen.orientation.lock("landscape");
         } else {
             document.exitFullscreen();
